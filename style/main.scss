@@ -1,0 +1,14 @@
+// Import Bootstrap 4 Library
+@import "../vendor/bootstrap/scss/bootstrap.scss";
+
+// TODO 1: Import All File
+@import "global";
+@import "navbar";
+@import "fonts";
+@import "pages/home";
+@import "pages/details";
+@import "pages/cart";
+@import "pages/auth";
+@import "components/categories";
+@import "components/products";
+@import "components/breadcrumbs";

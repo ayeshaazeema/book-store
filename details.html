@@ -1,0 +1,254 @@
+<!-- TODO 13 Make Category Page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Book - Store</title>
+
+    <!-- Untuk Animasi -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Panggil CSS -->
+    <link href="style/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom 
+      navbar-store fixed-top navbar-fixed-top" data-aos="fade-down">
+        <div class="container">
+            <a href="/index.html" class="navbar-brand">
+                <img src="/images/logo.png" alt="Logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon" id="navbarResponsive">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/categories.html" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Rewards</a>
+                    </li>
+                </ul>
+
+                <!-- TODO 14: Make Navigation Bar Authenticated -->
+                <!-- Desktop Menu -->
+                <ul class="navbar-nav d-none d-lg-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img src="/images/icon-user.png" alt="" class="rounded-circle mr-2 profile-picture" />
+                            Hi, Jean
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/dashboard.html">Dashboard</a>
+                            <a class="dropdown-item" href="/dashboard-account.html">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/">Sign Out</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-inline-block mt-2" href="#">
+                            <img src="/images/icon-cart.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Menu -->
+                <ul class="navbar-nav d-block d-lg-none">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hi, Jean</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-inline-block" href="#">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            </span>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content page-details">
+
+        <!-- TODO 15: Breadcrumbs Markup -->
+        <section class="store-breadcrumbs" data-aos="fade-down" data-aos-delay="100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Product Details
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TODO 18: Gallery Markup-->
+        <section class="store-gallery" id="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8" data-aos="zoom-in">
+                        <transition name="slide-fade" mode="out-in">
+                            <img :key="photos[activePhoto].id" :src="photos[activePhoto].url" class="w-100 main-image"
+                                alt="" />
+                        </transition>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-3 col-lg-12 mt-2 mt-lg-0" v-for="(photo, index) in photos" :key="photo.id"
+                                data-aos="zoom-in" data-aos-delay="100">
+                                <a href="#" @click="changeActive(index)">
+                                    <img :src="photo.url" class="w-100 thumbnail-image"
+                                        :class="{ active: index == activePhoto }" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TODO 20: Gallery Markup-->
+        <div class="store-details-container">
+            <section class="store-heading" data-aos="fade-up" data-aos-delay="700">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h1>The Chronicles Of Narnia 7-Book Slipcase</h1>
+                            <div class="owner">By C.S. Lewis</div>
+                            <div class="price">$71.95</div>
+                        </div>
+                        <div class="col-lg-2" data-aos="zoom-in">
+                            <a class="btn nav-link px-4 text-white btn-custom mb-3" href="/cart.html">
+                                Add to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="store-description" data-aos="fade-up" data-aos-delay="700">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-8">
+                            <p>
+                                The seven chronicles of C.S. Lewis's enduringly popular series are brought together in
+                                this beautifully presented slipcase. Join Peter, Susan, Edmund and Lucy as they stumble
+                                upon and explore the magical world of Narnia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TODO 22: Customer Review Markup -->
+            <section class="store-review" data-aos="fade-up" data-aos-delay="700">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 mt-3 mb-3">
+                            <h5>Customer Review (3)</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-8">
+                            <ul class="list-unstyled">
+                                <li class="media">
+                                    <img src="/images/icon-testimonial.png" class="mr-3 rounded-circle" alt="" />
+                                    <div class="media-body">
+                                        <h5 class="mt-2 mb-1">Customer 1</h5>
+                                        Great set for stories for your child to read.
+                                    </div>
+                                </li>
+                                <li class="media my-4">
+                                    <img src="/images/icon-testimonial.png" class="mr-3 rounded-circle" alt="" />
+                                    <div class="media-body">
+                                        <h5 class="mt-2 mb-1">Customer 2</h5>
+                                        Arrived in good time and as described.
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img src="/images/icon-testimonial.png" class="mr-3 rounded-circle" alt="" />
+                                    <div class="media-body">
+                                        <h5 class="mt-2 mb-1">Customer 3</h5>
+                                        Beautifully packaged. Good presentation.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="pt-4 pb-2">
+                        2021 Copyright Store. All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- TODO 17 Section Gallery VueJS -->
+    <script src="/vendor/vue/vue.js"></script>
+    <script>
+        var gallery = new Vue({
+            el: "#gallery",
+            mounted() {
+                AOS.init();
+            },
+            data: {
+                activePhoto: 3,
+                photos: [{
+                        id: 0,
+                        url: "/images/product-details-1.png",
+                    },
+                    {
+                        id: 1,
+                        url: "/images/product-details-2.png",
+                    },
+                    {
+                        id: 2,
+                        url: "/images/product-details-3.png",
+                    },
+                    {
+                        id: 3,
+                        url: "/images/product-details-4.png",
+                    },
+                ],
+            },
+            methods: {
+                changeActive(id) {
+                    this.activePhoto = id;
+                },
+            },
+        });
+    </script>
+    <script src="/script/navbar-scroll.js">
+    </script>
+</body>
+
+</html>
